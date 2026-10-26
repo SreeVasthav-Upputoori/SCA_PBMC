@@ -27,3 +27,30 @@ print("Number of genes:", adata.n_vars)
 
 # Matrix dimensions: (cells, genes)
 print("Matrix shape:", adata.shape)
+
+
+# ==========================================================
+# STEP 4: Inspect the gene-expression matrix
+# ==========================================================
+
+# Check the Python type of the expression matrix.
+print("\nMatrix type:", type(adata.X))
+
+# Examine the first 5 cells and first 5 genes.
+# Convert this small selection into a readable array.
+print("\nFirst 5 cells × first 5 genes:")
+print(adata.X[:5, :5].toarray())
+
+
+# ==========================================================
+# STEP 5: Inspect CD3D expression across PBMCs
+# ==========================================================
+
+# Retrieve CD3D counts for the first 10 cells.
+# Rows: first 10 cells
+# Column: CD3D gene
+cd3d_counts = adata[:10, "CD3D"].X.toarray()
+
+print("\nCD3D counts in the first 10 cells:")
+print(cd3d_counts.flatten())
+
